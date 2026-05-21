@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Webpage</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: teal;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #004d4d;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 18px;
+        }
+
+        .container {
+            padding: 30px;
+            text-align: center;
+        }
+
+        img {
+            width: 250px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            border: none;
+            background-color: teal;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkcyan;
+        }
+
+        footer {
+            background-color: teal;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to My Webpage</h1>
+        <p>Task-1 Web Development Project</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h2>Hello Everyone </h2>
+
+        <p>
+            This is a simple webpage created using HTML, CSS, and JavaScript.
+        </p>
+
+        <img src="image.jpg">
+
+        <br>
+
+        <button onclick="showMessage()">
+            Click Me
+        </button>
+    </div>
+
+    <footer>
+        <p>Created by Bhavani</p>
+    </footer>
+
+    <script>
+        function showMessage() {
+            alert("Welcome to My Web Development Project!");
+        }
+    </script>
+
+</body>
+</html>
