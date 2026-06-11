@@ -1,67 +1,93 @@
-// Contact Form Validation
+const questions = [
+{
+question: "What does HTML stand for?",
+answers: [
+{text:"Hyper Text Markup Language", correct:true},
+{text:"High Text Machine Language", correct:false},
+{text:"Hyper Transfer Markup Language", correct:false},
+{text:"Home Tool Markup Language", correct:false}
+]
+},
+{
+question: "Which language is used for styling web pages?",
+answers: [
+{text:"HTML", correct:false},
+{text:"CSS", correct:true},
+{text:"Python", correct:false},
+{text:"Java", correct:false}
+]
+},
+{
+question: "Which language is used for webpage interactivity?",
+answers: [
+{text:"JavaScript", correct:true},
+{text:"CSS", correct:false},
+{text:"C++", correct:false},
+{text:"SQL", correct:false}
+]
+}
+];
 
-document.getElementById("contactForm")
-.addEventListener("submit", function(e){
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+const scoreDisplay = document.getElementById("score");
 
-    e.preventDefault();
+let currentQuestionIndex = 0;
+let score = 0;
 
-    let name =
-        document.getElementById("name").value;
+function startQuiz(){
+showQuestion();
+}
 
-    let email =
-        document.getElementById("email").value;
+function showQuestion(){
+resetState();
 
-    let message =
-        document.getElementById("message").value;
+let currentQuestion = questions[currentQuestionIndex];
+questionElement.innerText = currentQuestion.question;
 
-    let error =
-        document.getElementById("error");
+currentQuestion.answers.forEach(answer=>{
+const button = document.createElement("button");
+button.innerText = answer.text;
+button.classList.add("btn");
+button.addEventListener("click", ()=>selectAnswer(button, answer.correct));
+answerButtons.appendChild(button);
+});
+}
 
-    if(name === "" ||
-       email === "" ||
-       message === ""){
+function resetState(){
+nextButton.style.display="none";
+answerButtons.innerHTML="";
+}
 
-        error.innerText =
-            "Please fill all fields";
-        return;
-    }
+function selectAnswer(button, correct){
+if(correct){
+button.classList.add("correct");
+score++;
+}
+else{
+button.classList.add("wrong");
+}
 
-    if(!email.includes("@")){
-        error.innerText =
-            "Enter valid email";
-        return;
-    }
-
-    error.innerText =
-        "Form submitted successfully!";
+Array.from(answerButtons.children).forEach(btn=>{
+btn.disabled=true;
 });
 
-
-// To Do List
-
-function addTask(){
-
-    let taskInput =
-        document.getElementById("taskInput");
-
-    let task =
-        taskInput.value;
-
-    if(task === ""){
-        return;
-    }
-
-    let li =
-        document.createElement("li");
-
-    li.innerHTML =
-        `${task}
-        <button onclick="this.parentElement.remove()">
-        Delete
-        </button>`;
-
-    document.getElementById("taskList")
-        .appendChild(li);
-
-    taskInput.value = "";
+nextButton.style.display="block";
 }
+
+nextButton.addEventListener("click", ()=>{
+currentQuestionIndex++;
+
+if(currentQuestionIndex < questions.length){
+showQuestion();
+}
+else{
+questionElement.innerText="Quiz Completed!";
+answerButtons.innerHTML="";
+nextButton.style.display="none";
+scoreDisplay.innerText=`Your Score: ${score}/${questions.length}`;
+}
+});
+
+startQuiz();
