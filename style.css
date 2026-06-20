@@ -1,71 +1,131 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:#0f172a;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+background:#f4f4f4;
 }
 
-.quiz-container{
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    width:90%;
-    max-width:500px;
-    text-align:center;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+header{
+background:#008080;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
 }
 
-h1{
-    margin-bottom:20px;
+nav ul{
+display:flex;
+list-style:none;
 }
 
-.btn-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:20px;
+nav ul li{
+margin-left:20px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:18px;
+}
+
+.section{
+padding:60px 20px;
+text-align:center;
+}
+
+.profile{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #008080;
+margin-bottom:20px;
 }
 
 .btn{
-    padding:12px;
-    border:none;
-    background:#2563eb;
-    color:white;
-    border-radius:5px;
-    cursor:pointer;
-    transition:0.3s;
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+background:#008080;
+color:white;
+text-decoration:none;
+border-radius:5px;
 }
 
 .btn:hover{
-    background:#1d4ed8;
+background:#006666;
 }
 
-.correct{
-    background:green !important;
+.skill-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:20px;
 }
 
-.wrong{
-    background:red !important;
+.skill{
+background:white;
+padding:15px 30px;
+border-radius:8px;
+box-shadow:0 0 8px rgba(0,0,0,0.2);
 }
 
-#next-btn{
-    margin-top:20px;
-    padding:10px 20px;
-    background:#16a34a;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
+.card{
+background:white;
+width:80%;
+margin:20px auto;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
-#score{
-    margin-top:20px;
+.card a{
+display:inline-block;
+margin-top:10px;
+background:#008080;
+color:white;
+padding:10px 15px;
+text-decoration:none;
+border-radius:5px;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+}
+
+nav ul{
+flex-direction:column;
+text-align:center;
+}
+
+nav ul li{
+margin:10px;
+}
+
+.card{
+width:95%;
+}
+
+.profile{
+width:140px;
+height:140px;
+}
 }
